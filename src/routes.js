@@ -75,9 +75,9 @@ var routes = [
     layout: "/auth"
   },
   {
-    path: "/unidade",
+    path: "/unidades",
     name: "Unidades de saúde",
-    icon: "ni ni-circle-08 text-pink",
+    icon: "ni ni-building text-blue",
     component: UnidadeSaude,
     layout: "/admin"
   }
