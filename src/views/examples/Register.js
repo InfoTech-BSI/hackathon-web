@@ -1,23 +1,6 @@
-/*!
-
-=========================================================
-* Argon Dashboard React - v1.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-dashboard-react
-* Copyright 2019 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/argon-dashboard-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
 
-// reactstrap components
+
 import {
   Button,
   Card,
@@ -37,58 +20,31 @@ class Register extends React.Component {
   render() {
     return (
       <>
+
         <Col lg="6" md="8">
           <Card className="bg-secondary shadow border-0">
-            <CardHeader className="bg-transparent pb-5">
-              <div className="text-muted text-center mt-2 mb-4">
-                <small>Sign up with</small>
-              </div>
-              <div className="text-center">
-                <Button
-                  className="btn-neutral btn-icon mr-4"
-                  color="default"
-                  href="#pablo"
-                  onClick={e => e.preventDefault()}
-                >
-                  <span className="btn-inner--icon">
-                    <img
-                      alt="..."
-                      src={require("assets/img/icons/common/github.svg")}
-                    />
-                  </span>
-                  <span className="btn-inner--text">Github</span>
-                </Button>
-                <Button
-                  className="btn-neutral btn-icon"
-                  color="default"
-                  href="#pablo"
-                  onClick={e => e.preventDefault()}
-                >
-                  <span className="btn-inner--icon">
-                    <img
-                      alt="..."
-                      src={require("assets/img/icons/common/google.svg")}
-                    />
-                  </span>
-                  <span className="btn-inner--text">Google</span>
-                </Button>
-              </div>
-            </CardHeader>
+            
+
             <CardBody className="px-lg-5 py-lg-5">
-              <div className="text-center text-muted mb-4">
-                <small>Or sign up with credentials</small>
-              </div>
+
               <Form role="form">
+
+
+               
+
+
                 <FormGroup>
-                  <InputGroup className="input-group-alternative mb-3">
+                  <InputGroup className="input-group-alternative">
                     <InputGroupAddon addonType="prepend">
                       <InputGroupText>
-                        <i className="ni ni-hat-3" />
+                        <i className="ni ni-circle-08" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="Name" type="text" />
+                    <Input placeholder="Nome" type="nome" autoComplete="new-nome" />
                   </InputGroup>
                 </FormGroup>
+
+
                 <FormGroup>
                   <InputGroup className="input-group-alternative mb-3">
                     <InputGroupAddon addonType="prepend">
@@ -96,9 +52,48 @@ class Register extends React.Component {
                         <i className="ni ni-email-83" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="Email" type="email" autoComplete="new-email"/>
+                    <Input placeholder="Email" type="email" autoComplete="new-email" />
                   </InputGroup>
                 </FormGroup>
+
+
+
+                <FormGroup>
+                  <InputGroup className="input-group-alternative">
+                    <InputGroupAddon addonType="prepend">
+                      <InputGroupText>
+                        <i className="ni ni-circle-08" />
+                      </InputGroupText>
+                    </InputGroupAddon>
+                    <Input type="select">
+                      <option>Perfil</option>
+                      <option>Municipal</option>
+                      <option>Monitoramento</option>
+                    </Input>
+                  </InputGroup>
+                </FormGroup>
+                
+
+                <FormGroup>
+                  <InputGroup className="input-group-alternative">
+                    <InputGroupAddon addonType="prepend">
+                      <InputGroupText>
+                        <i className="ni ni-fat-add" />
+                      </InputGroupText>
+                    </InputGroupAddon>
+                    <Input type="select">
+                      <option>Unidade de Saúde</option>
+                      <option>UBS ALTO CAFEZAL “Dr. Francisco Nicolau Salum”</option>
+                      <option>UBS BANDEIRANTES “Dr. Augusto Bastos Chaves”</option>
+                      <option>UBS CASCATA “Dr. Luis Augusto Pisani Lourenço”</option>
+                      <option>UBS CASTELO BRANCO “Dr. Eurípides Batistetti”</option>
+                      <option>UBS CHICO MENDES “Dr. Érico Cardeal”</option>
+                    </Input>
+                  </InputGroup>
+                </FormGroup>
+
+
+
                 <FormGroup>
                   <InputGroup className="input-group-alternative">
                     <InputGroupAddon addonType="prepend">
@@ -106,15 +101,21 @@ class Register extends React.Component {
                         <i className="ni ni-lock-circle-open" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="Password" type="password" autoComplete="new-password"/>
+                    <Input placeholder="Senha" type="password" autoComplete="new-password" />
                   </InputGroup>
                 </FormGroup>
+
+
+          
+
                 <div className="text-muted font-italic">
                   <small>
                     password strength:{" "}
                     <span className="text-success font-weight-700">strong</span>
                   </small>
                 </div>
+
+
                 <Row className="my-4">
                   <Col xs="12">
                     <div className="custom-control custom-control-alternative custom-checkbox">
@@ -128,20 +129,22 @@ class Register extends React.Component {
                         htmlFor="customCheckRegister"
                       >
                         <span className="text-muted">
-                          I agree with the{" "}
+                          Concordo com os termos de{" "}
                           <a href="#pablo" onClick={e => e.preventDefault()}>
-                            Privacy Policy
+                            Privacidade
                           </a>
                         </span>
                       </label>
                     </div>
                   </Col>
                 </Row>
+
                 <div className="text-center">
                   <Button className="mt-4" color="primary" type="button">
-                    Create account
+                    Criar Conta
                   </Button>
                 </div>
+
               </Form>
             </CardBody>
           </Card>

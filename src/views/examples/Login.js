@@ -1,20 +1,4 @@
-/*!
 
-=========================================================
-* Argon Dashboard React - v1.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-dashboard-react
-* Copyright 2019 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/argon-dashboard-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
 
 // reactstrap components
@@ -39,44 +23,10 @@ class Login extends React.Component {
       <>
         <Col lg="5" md="7">
           <Card className="bg-secondary shadow border-0">
-            <CardHeader className="bg-transparent pb-5">
-              <div className="text-muted text-center mt-2 mb-3">
-                <small>Sign in with</small>
-              </div>
-              <div className="btn-wrapper text-center">
-                <Button
-                  className="btn-neutral btn-icon"
-                  color="default"
-                  href="#pablo"
-                  onClick={e => e.preventDefault()}
-                >
-                  <span className="btn-inner--icon">
-                    <img
-                      alt="..."
-                      src={require("assets/img/icons/common/github.svg")}
-                    />
-                  </span>
-                  <span className="btn-inner--text">Github</span>
-                </Button>
-                <Button
-                  className="btn-neutral btn-icon"
-                  color="default"
-                  href="#pablo"
-                  onClick={e => e.preventDefault()}
-                >
-                  <span className="btn-inner--icon">
-                    <img
-                      alt="..."
-                      src={require("assets/img/icons/common/google.svg")}
-                    />
-                  </span>
-                  <span className="btn-inner--text">Google</span>
-                </Button>
-              </div>
-            </CardHeader>
+            
             <CardBody className="px-lg-5 py-lg-5">
               <div className="text-center text-muted mb-4">
-                <small>Or sign in with credentials</small>
+                <small>Faça login com o email</small>
               </div>
               <Form role="form">
                 <FormGroup className="mb-3">
@@ -96,7 +46,7 @@ class Login extends React.Component {
                         <i className="ni ni-lock-circle-open" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="Password" type="password" autoComplete="new-password"/>
+                    <Input placeholder="Senha" type="password" autoComplete="new-password"/>
                   </InputGroup>
                 </FormGroup>
                 <div className="custom-control custom-control-alternative custom-checkbox">
@@ -109,12 +59,12 @@ class Login extends React.Component {
                     className="custom-control-label"
                     htmlFor=" customCheckLogin"
                   >
-                    <span className="text-muted">Remember me</span>
+                    <span className="text-muted">Lembre-me</span>
                   </label>
                 </div>
                 <div className="text-center">
                   <Button className="my-4" color="primary" type="button">
-                    Sign in
+                    Entrar
                   </Button>
                 </div>
               </Form>
@@ -127,7 +77,7 @@ class Login extends React.Component {
                 href="#pablo"
                 onClick={e => e.preventDefault()}
               >
-                <small>Forgot password?</small>
+                <small>Esqueceu a senha?</small>
               </a>
             </Col>
             <Col className="text-right" xs="6">
@@ -136,7 +86,7 @@ class Login extends React.Component {
                 href="#pablo"
                 onClick={e => e.preventDefault()}
               >
-                <small>Create new account</small>
+                <small>Crie uma nova conta</small>
               </a>
             </Col>
           </Row>
