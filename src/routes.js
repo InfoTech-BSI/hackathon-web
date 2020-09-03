@@ -5,6 +5,7 @@ import Register from "views/examples/Register.js";
 import Login from "views/examples/Login.js";
 import Tables from "views/examples/Tables.js";
 import UnidadeSaude from "views/modulos/UnidadeSaude";
+import Paciente from "views/examples/Paciente.js"
 
 var routes = [
   {
@@ -38,7 +39,7 @@ var routes = [
   },
   {
     path: "/register",
-    name: "Cadastro",
+    name: "Cadastro ",
     icon: "ni ni-circle-08 text-pink",
     component: Register,
     layout: "/auth"
@@ -49,6 +50,16 @@ var routes = [
     icon: "ni ni-building text-blue",
     component: UnidadeSaude,
     layout: "/admin"
+  },
+
+  {
+    
+      path: "/pacientes",
+      name: "Cadastro Paciente",
+      icon: "ni ni-circle-08",
+      component: Paciente,
+      layout: "/admin"
+    
   }
 ];
 export default routes;
