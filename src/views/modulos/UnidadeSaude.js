@@ -1,6 +1,6 @@
 import React from "react";
 
-// reactstrap components
+// reactstrap componentes
 import {
   Badge,
   Button,
@@ -22,12 +22,12 @@ import {
   Modal
 } from "reactstrap";
 
-import HeaderBasic from "components/Headers/HeaderBasic.js";
-
-import CadastroUnidade from "components/Funcao/CadastroUnidade.js";
-
+//API
 import axios from "axios";
 
+//Componentes
+import HeaderBasic from "components/Headers/HeaderBasic.js";
+import CadastroUnidade from "components/Funcao/CadastroUnidade.js";
 import AlteracaoUnidade from "components/Funcao/AlteracaoUnidade";
 
 //Define o tipo de unidade na listagem

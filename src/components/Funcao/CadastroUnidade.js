@@ -12,6 +12,7 @@ import {
     Spinner
 } from "reactstrap";
 
+//API
 import axios from "axios";
 
 class CadastroUnidade extends React.Component {
@@ -178,22 +179,23 @@ class CadastroUnidade extends React.Component {
                             </FormText>
                         </FormGroup>
                         <FormGroup>
-                            <Input defaultValue={this.state.rua || ''} placeholder="Rua" name="rua" type="text" />
+                            <Input defaultValue={this.state.rua || ''} onChange={e => this.InputChange(e)} placeholder="Rua" name="rua" type="text" />
                         </FormGroup>
                         <FormGroup>
                             <Input defaultValue={this.state.numero || ''} onChange={e => this.InputChange(e)} placeholder="Número" name="numero" type="text" required />
                         </FormGroup>
                         <FormGroup>
-                            <Input defaultValue={this.state.complemento || ''} placeholder="Complemento" name="complemento" type="text" />
+                            <Input defaultValue={this.state.complemento || ''} onChange={e => this.InputChange(e)} placeholder="Complemento" name="complemento" type="text" />
                         </FormGroup>
                         <FormGroup>
-                            <Input defaultValue={this.state.bairro || ''} placeholder="Bairro" name="bairro" type="text" required />
+                            <Input defaultValue={this.state.bairro || ''} onChange={e => this.InputChange(e)} placeholder="Bairro" name="bairro" type="text" required />
                         </FormGroup>
                         <FormGroup>
-                            <Input value={this.state.cidade || ''} disabled placeholder="Cidade" name="cidade" type="text" required />
+                            <Input defaultValue={this.state.cidade || ''} placeholder="Cidade" name="cidade" type="text" required />
                         </FormGroup>
                         <FormGroup>
                             <Input value={this.state.estado || ''} disabled type="select" name="estado" id="estado" required >
+                                <option value="SP"> São Paulo </option>
                                 <option value="AC"> Acre </option>
                                 <option value="AL"> Alagoas </option>
                                 <option value="AP"> Amapá </option>
@@ -218,7 +220,6 @@ class CadastroUnidade extends React.Component {
                                 <option value="RO"> Rondônia </option>
                                 <option value="RR"> Roraima </option>
                                 <option value="SC"> Santa Catarina </option>
-                                <option value="SP"> São Paulo </option>
                                 <option value="SE"> Sergipe </option>
                                 <option value="TO"> Tocantins </option>
                             </Input>
