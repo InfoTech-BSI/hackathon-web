@@ -1,17 +1,5 @@
-
 import React from "react";
-
-import classnames from "classnames";
-
 import Chart from "chart.js";
-
-import { Line, Bar } from "react-chartjs-2";
-
-import {
-  
-  
-} from "reactstrap";
-
 
 import {
   chartOptions,
