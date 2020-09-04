@@ -1,6 +1,5 @@
 
 import Index from "views/Index.js";
-import Profile from "views/examples/Profile.js";
 import Register from "views/examples/Register.js";
 import Login from "views/examples/Login.js";
 import Tables from "views/examples/Tables.js";
@@ -16,13 +15,7 @@ var routes = [
     layout: "/admin"
   },
 
-  {
-    path: "/user-profile",
-    name: "Usuário",
-    icon: "ni ni-single-02 text-yellow",
-    component: Profile,
-    layout: "/admin"
-  },
+ 
   {
     path: "/tables",
     name: "Pacientes",

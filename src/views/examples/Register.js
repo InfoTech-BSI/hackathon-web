@@ -108,13 +108,7 @@ class Register extends React.Component {
 
           
 
-                <div className="text-muted font-italic">
-                  <small>
-                    password strength:{" "}
-                    <span className="text-success font-weight-700">strong</span>
-                  </small>
-                </div>
-
+             
 
                 <Row className="my-4">
                   <Col xs="12">
@@ -124,17 +118,7 @@ class Register extends React.Component {
                         id="customCheckRegister"
                         type="checkbox"
                       />
-                      <label
-                        className="custom-control-label"
-                        htmlFor="customCheckRegister"
-                      >
-                        <span className="text-muted">
-                          Concordo com os termos de{" "}
-                          <a href="#pablo" onClick={e => e.preventDefault()}>
-                            Privacidade
-                          </a>
-                        </span>
-                      </label>
+                     
                     </div>
                   </Col>
                 </Row>

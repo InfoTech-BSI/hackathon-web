@@ -23,9 +23,7 @@ class AdminNavbar extends React.Component {
           expand="md"
         >
           <Container className="px-4">
-            <NavbarBrand to="/" tag={Link}>
-              <img alt="..." src={require("assets/img/brand/argon-react-white.png")} />
-            </NavbarBrand>
+            
             <button className="navbar-toggler" id="navbar-collapse-main">
               <span className="navbar-toggler-icon" />
             </button>
@@ -70,17 +68,7 @@ class AdminNavbar extends React.Component {
                   </NavLink>
                 </NavItem>
                 
-                <NavItem>
-                  <NavLink
-                    className="nav-link-icon"
-                    to="paciente"
-                    tag={Link}
-                  >
-                 
-                    <i className="ni ni-single-02" />
-                    <span className="nav-link-inner--text">Perfil</span>
-                  </NavLink>
-                </NavItem>
+                
               </Nav>
             </UncontrolledCollapse>
           </Container>
