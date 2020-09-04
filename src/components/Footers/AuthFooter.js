@@ -1,8 +1,8 @@
 
 import React from "react";
 
-// reactstrap components
-import {  Container, Row } from "reactstrap";
+import { Container, Row } from "reactstrap";
+
 
 class Login extends React.Component {
   render() {

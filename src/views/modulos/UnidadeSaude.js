@@ -1,6 +1,6 @@
 import React from "react";
 
-// reactstrap components
+// reactstrap componentes
 import {
   Badge,
   Button,
@@ -8,14 +8,8 @@ import {
   CardHeader,
   CardBody,
   CardFooter,
-  Col,
   DropdownMenu,
   DropdownItem,
-  Fade,
-  FormGroup,
-  Form,
-  FormText,
-  Input,
   UncontrolledDropdown,
   DropdownToggle,
   Pagination,
@@ -28,11 +22,18 @@ import {
   Modal
 } from "reactstrap";
 
+//API
+import axios from "axios";
+
+//Componentes
 import HeaderBasic from "components/Headers/HeaderBasic.js";
+import CadastroUnidade from "components/Funcao/CadastroUnidade.js";
+import AlteracaoUnidade from "components/Funcao/AlteracaoUnidade";
 
 //Define o tipo de unidade na listagem
 function VerificaSintomatico(variaveis) {
   const opcao = variaveis.sintomatico;
+
   if (opcao === 1) {
     return (
       <Badge color="" className="badge-dot mr-4">
@@ -52,10 +53,12 @@ function VerificaSintomatico(variaveis) {
 class UnidadeSaude extends React.Component {
   state = {
     cadastrarModal: false,
+    alterarModal: false,
     error: null,
     isLoaded: false,
     items: [],
-    cep: ''
+    idUnidade: 0,
+    idEndereco: 0
   };
 
   toggleModal = state => {
@@ -64,14 +67,27 @@ class UnidadeSaude extends React.Component {
     });
   };
 
-  //Para funcionar a busca de cep
-  
+  //Apaga Unidade
+  ApagaUnidade(id){
+    axios.delete('http://localhost:3001/unidadeSaude/'+id).then(response => response.data)
+    .then((data) => {
+      window.location.reload(false);
+    }).catch(function (error) {
+      console.log('Erro: ', error);
+    });
+  };
 
-  buscarCepChange(event) {
-    this.setState({cep: event.target.value});
+  //Muda id da alteração
+  IdUdpate(endereco,unidade) {
+    this.setState({
+      idUnidade: unidade,
+      idEndereco: endereco
+    });
+    this.toggleModal("alterarModal")
   }
 
   componentDidMount() {
+    //Carrega os dados
     fetch("http://localhost:3001/unidadeSaude")
     .then(res => res.json())
     .then(
@@ -88,23 +104,14 @@ class UnidadeSaude extends React.Component {
         });
       }
     );
-    fetch("https://viacep.com.br/ws/"+this.setState.cep+"/json/")
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            items: result.items
-          });
-        },
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      );
   };
+
+  // componentDidUpdate(prevProps) {
+  //   // Uso típico, (não esqueça de comparar as props):
+  //   if (this.props.userID !== prevProps.userID) {
+  //     this.fetchData(this.props.userID);
+  //   }
+  // }
 
   render() {
     const { error, isLoaded, items } = this.state;
@@ -154,8 +161,8 @@ class UnidadeSaude extends React.Component {
                       </tr>
                     </thead>
                     <tbody>
-                      {items.map((item, index) => (
-                        <tr key={index}>
+                      {items.map((item) => (
+                        <tr key={item.idUnidadeSaude}>
                           <td>
                             {item.nome}
                           </td>
@@ -169,32 +176,22 @@ class UnidadeSaude extends React.Component {
                             <UncontrolledDropdown>
                               <DropdownToggle
                                 className="btn-icon-only text-light"
-                                href="#pablo"
                                 role="button"
-                                size="sm"
-                                color=""
+                                color="white"
                                 onClick={e => e.preventDefault()}
                               >
-                                <i className="fas fa-ellipsis-v" />
+                                <i className="fas fa-ellipsis-v text-black-50" />
                               </DropdownToggle>
                               <DropdownMenu className="dropdown-menu-arrow" right>
                                 <DropdownItem
-                                  href="#pablo"
-                                  onClick={e => e.preventDefault()}
+                                  onClick={() => this.IdUdpate(item.idEndereco,item.idUnidadeSaude)}
                                 >
-                                  Action
+                                  Editar
                                 </DropdownItem>
                                 <DropdownItem
-                                  href="#pablo"
-                                  onClick={e => e.preventDefault()}
+                                  onClick={() => this.ApagaUnidade(item.idUnidadeSaude)}
                                 >
-                                  Another action
-                                </DropdownItem>
-                                <DropdownItem
-                                  href="#pablo"
-                                  onClick={e => e.preventDefault()}
-                                >
-                                  Something else here
+                                  Apagar
                                 </DropdownItem>
                               </DropdownMenu>
                             </UncontrolledDropdown>
@@ -211,7 +208,7 @@ class UnidadeSaude extends React.Component {
                       >
                         <PaginationItem className="disabled">
                           <PaginationLink
-                            href="#pablo"
+                            href="#1"
                             onClick={e => e.preventDefault()}
                             tabIndex="-1"
                           >
@@ -221,7 +218,7 @@ class UnidadeSaude extends React.Component {
                         </PaginationItem>
                         <PaginationItem className="active">
                           <PaginationLink
-                            href="#pablo"
+                            href="#1"
                             onClick={e => e.preventDefault()}
                           >
                             1
@@ -229,7 +226,7 @@ class UnidadeSaude extends React.Component {
                         </PaginationItem>
                         <PaginationItem>
                           <PaginationLink
-                            href="#pablo"
+                            href="#2"
                             onClick={e => e.preventDefault()}
                           >
                             2 <span className="sr-only">(current)</span>
@@ -237,7 +234,7 @@ class UnidadeSaude extends React.Component {
                         </PaginationItem>
                         <PaginationItem>
                           <PaginationLink
-                            href="#pablo"
+                            href="#3"
                             onClick={e => e.preventDefault()}
                           >
                             3
@@ -245,7 +242,7 @@ class UnidadeSaude extends React.Component {
                         </PaginationItem>
                         <PaginationItem>
                           <PaginationLink
-                            href="#pablo"
+                            href="#2"
                             onClick={e => e.preventDefault()}
                           >
                             <i className="fas fa-angle-right" />
@@ -265,9 +262,6 @@ class UnidadeSaude extends React.Component {
             toggle={() => this.toggleModal("cadastrarModal")}
           >
             <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">
-                Cadastro
-              </h5>
               <button
                 aria-label="Close"
                 className="close"
@@ -280,79 +274,43 @@ class UnidadeSaude extends React.Component {
             </div>
             <div className="modal-body p-0">
               <Card className="bg-secondary shadow border-0">
-                <CardBody className="px-lg-5 py-lg-5">
+                <CardBody className="pl-lg-5 pr-lg-5 pb-0 pt-0">
                   <div className="text-center mb-3">
-                    <big>Cadastro de Unidades de Saúde</big>
+                    <h1>Cadastro de Unidades de Saúde</h1>
                   </div>
-                  <Form role="form">
-                    <FormGroup>
-                      <Input placeholder="Nome" type="text" />
-                    </FormGroup>
-                    <FormGroup>
-                      <div className="custom-control custom-checkbox">
-                        <input
-                          className="custom-control-input"
-                          id="sintomaticaCheck"
-                          type="checkbox"
-                        />
-                        <label className="custom-control-label" htmlFor="sintomaticaCheck">
-                          Sintomática
-                        </label>
-                      </div>
-                    </FormGroup>
-                    <FormGroup>
-                      <Row>
-                        <Col md="8">
-                          <FormGroup>
-                            <Input placeholder="Cep" name="cep" id="cep" type="text" />
-                          </FormGroup>
-                        </Col>
-                        <Col md="4">
-                          <FormGroup>
-                            <Button color="primary"type="button">
-                              Buscar
-                            </Button>
-                          </FormGroup>
-                        </Col>
-                      </Row>
-                      <FormText color="muted">
-                        Digite o cep e aperte buscar para o autopreenchimento
-                      </FormText>
-                    </FormGroup>
-                    <FormGroup>
-                      <Input placeholder="Rua" name="rua" type="text" disabled />
-                    </FormGroup>
-                    <FormGroup>
-                      <Input placeholder="Número" name="numero" type="text" disabled />
-                    </FormGroup>
-                    <FormGroup>
-                      <Input placeholder="Complemento" name="complemento" type="text" />
-                    </FormGroup>
-                    <FormGroup>
-                      <Input placeholder="Bairro" name="bairro" type="text" disabled />
-                    </FormGroup>
-                    <FormGroup>
-                      <Input placeholder="Cidade" name="cidade" type="text" disabled />
-                    </FormGroup>
-                    <FormGroup>
-                      <Input placeholder="Estado" name="estado" type="text" disabled />
-                    </FormGroup>
-                  </Form>
+                  <CadastroUnidade></CadastroUnidade>
                 </CardBody>
               </Card>
             </div>
-            <div className="modal-footer">
-              <Button
-                color="secondary"
+          </Modal>
+          <Modal
+            className="modal-dialog-centered"
+            isOpen={this.state.alterarModal}
+            toggle={() => this.toggleModal("alterarModal")}
+          >
+            <div className="modal-header">
+              <button
+                aria-label="Close"
+                className="close"
                 data-dismiss="modal"
                 type="button"
-                onClick={() => this.toggleModal("cadastrarModal")}
+                onClick={() => this.toggleModal("alterarModal")}
               >
-                Close
-              </Button>
-              <Button color="success" type="button">
-                Save changes
-              </Button>
+                <span aria-hidden={true}>×</span>
+              </button>
+            </div>
+            <div className="modal-body p-0">
+              <Card className="bg-secondary shadow border-0">
+                <CardBody className="pl-lg-5 pr-lg-5 pb-0 pt-0">
+                  <div className="text-center mb-3">
+                    <h1>Alteração de Unidades de Saúde</h1>
+                  </div>
+                  <AlteracaoUnidade
+                    idUnidade={this.state.idUnidade}
+                    idEndereco={this.state.idEndereco}
+                  ></AlteracaoUnidade>
+                </CardBody>
+              </Card>
             </div>
           </Modal>
         </>
