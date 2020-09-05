@@ -1,10 +1,8 @@
 
 import React from "react";
 import { NavLink as NavLinkRRD, Link } from "react-router-dom";
-// nodejs library to set properties for components
 import { PropTypes } from "prop-types";
 
-// reactstrap components
 import {
   Collapse,
   DropdownMenu,
@@ -35,17 +33,17 @@ class Sidebar extends React.Component {
     super(props);
     this.activeRoute.bind(this);
   }
-  // verifies if routeName is the one active (in browser input)
+
   activeRoute(routeName) {
     return this.props.location.pathname.indexOf(routeName) > -1 ? "active" : "";
   }
-  // toggles collapse between opened and closed (true/false)
+
   toggleCollapse = () => {
     this.setState({
       collapseOpen: !this.state.collapseOpen
     });
   };
-  // closes the collapse
+
   closeCollapse = () => {
     this.setState({
       collapseOpen: false
@@ -69,6 +67,7 @@ class Sidebar extends React.Component {
       );
     });
   };
+
   render() {
     const { routes, logo } = this.props;
     let navbarBrandProps;
@@ -224,18 +223,11 @@ Sidebar.defaultProps = {
 };
 
 Sidebar.propTypes = {
-  // links that will be displayed inside the component
   routes: PropTypes.arrayOf(PropTypes.object),
   logo: PropTypes.shape({
-    // innerLink is for links that will direct the user within the app
-    // it will be rendered as <Link to="...">...</Link> tag
     innerLink: PropTypes.string,
-    // outterLink is for links that will direct the user outside the app
-    // it will be rendered as simple <a href="...">...</a> tag
     outterLink: PropTypes.string,
-    // the image src of the logo
     imgSrc: PropTypes.string.isRequired,
-    // the alt for the img
     imgAlt: PropTypes.string.isRequired
   })
 };

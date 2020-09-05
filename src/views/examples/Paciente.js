@@ -1,5 +1,5 @@
 import React from "react";
-
+import api from "../../services/api";
 
 import {
   Button,
@@ -63,7 +63,7 @@ class Register extends React.Component {
   
   componentDidMount() {
     //Carrega os dados
-    fetch("http://localhost:3001/unidadeSaude")
+    fetch(api+"/unidadeSaude")
     .then(res => res.json())
     .then(
       (result) => {
@@ -799,16 +799,11 @@ class Register extends React.Component {
                     </FormGroup>
                   </Col>
                 </Row>
-
-
-
-
                 <div className="text-center">
                   <Button className="mt-4" color="primary" type="button">
                     Salvar
                   </Button>
                 </div>
-
               </Form>
             </CardBody>
           </Card>
