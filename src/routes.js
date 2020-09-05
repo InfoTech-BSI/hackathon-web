@@ -8,13 +8,6 @@ import Paciente from "views/examples/Paciente.js"
 
 var routes = [
   {
-    path: "/index",
-    name: "Pacientes",
-    icon: "ni ni-bullet-list-67 text-red",
-    component: Register,
-    layout: "/admin"
-  },
-  {
     path: "/tables",
     name: "Pacientes",
     icon: "ni ni-bullet-list-67 text-red",
