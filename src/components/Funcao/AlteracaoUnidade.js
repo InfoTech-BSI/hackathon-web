@@ -15,6 +15,8 @@ import {
 //API
 import axios from "axios";
 
+import api from "../../services/api";
+
 class AlteracaoUnidade extends React.Component {
 
     constructor(props) {
@@ -39,7 +41,7 @@ class AlteracaoUnidade extends React.Component {
     
     componentDidMount() {
         //Carrega os dados
-        fetch("http://localhost:3001/unidadeSaude/"+this.state.idUnidade)
+        fetch(api+"unidadeSaude/"+this.state.idUnidade)
             .then(res => res.json())
             .then(
             (result) => {
@@ -94,7 +96,7 @@ class AlteracaoUnidade extends React.Component {
         }
 
         //Cadastra via api
-        axios.put('http://localhost:3001/Endereco/'+idEnderecoSet,{
+        axios.put(api+'Endereco/'+idEnderecoSet,{
             cep: cepSet,
             rua: ruaSet,
             numero: numeroSet,
@@ -104,7 +106,7 @@ class AlteracaoUnidade extends React.Component {
             estado: estadoSet
         }).then(function (response) {
             console.log('Sucesso: ', response);
-            axios.put('http://localhost:3001/UnidadeSaude/'+idUnidadeSet,{
+            axios.put(api+'UnidadeSaude/'+idUnidadeSet,{
                 nome: nomeSet,
                 sintomatica: sintomaticaSet,
                 endereco: idEnderecoSet

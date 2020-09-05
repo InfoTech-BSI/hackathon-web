@@ -15,6 +15,8 @@ import {
 //API
 import axios from "axios";
 
+import api from "../../services/api";
+
 class CadastroUnidade extends React.Component {
 
     constructor(props) {
@@ -59,7 +61,7 @@ class CadastroUnidade extends React.Component {
         }
 
         //Cadastra via api
-        axios.post('http://localhost:3001/Endereco/',{
+        axios.post(api+'Endereco/',{
             cep: cepSet,
             rua: ruaSet,
             numero: numeroSet,
@@ -69,7 +71,7 @@ class CadastroUnidade extends React.Component {
             estado: estadoSet
         }).then(function (response) {
             console.log('Sucesso: ', response);
-            axios.post('http://localhost:3001/UnidadeSaude/',{
+            axios.post(api+'UnidadeSaude/',{
                 nome: nomeSet,
                 sintomatica: sintomaticaSet
             }).then(function (response) {

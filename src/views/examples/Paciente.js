@@ -63,7 +63,7 @@ class Register extends React.Component {
   
   componentDidMount() {
     //Carrega os dados
-    fetch(api+"/unidadeSaude")
+    fetch(api+"unidadeSaude")
     .then(res => res.json())
     .then(
       (result) => {

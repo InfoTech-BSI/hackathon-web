@@ -70,7 +70,7 @@ class UnidadeSaude extends React.Component {
 
   //Apaga Unidade
   ApagaUnidade(id){
-    axios.delete(api+'/unidadeSaude/'+id).then(response => response.data)
+    axios.delete(api+'unidadeSaude/'+id).then(response => response.data)
     .then((data) => {
       window.location.reload(false);
     }).catch(function (error) {
@@ -89,7 +89,7 @@ class UnidadeSaude extends React.Component {
 
   componentDidMount() {
     //Carrega os dados
-    fetch(api+"/unidadeSaude")
+    fetch(api+"unidadeSaude")
     .then(res => res.json())
     .then(
       (result) => {
