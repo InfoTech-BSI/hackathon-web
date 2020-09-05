@@ -7,9 +7,13 @@ import UnidadeSaude from "views/modulos/UnidadeSaude";
 import Paciente from "views/examples/Paciente.js"
 
 var routes = [
-  
-
- 
+  {
+    path: "/index",
+    name: "Pacientes",
+    icon: "ni ni-bullet-list-67 text-red",
+    component: Index,
+    layout: "/admin"
+  },
   {
     path: "/tables",
     name: "Pacientes",
@@ -38,15 +42,12 @@ var routes = [
     component: UnidadeSaude,
     layout: "/admin"
   },
-
   {
-    
       path: "/pacientes",
       name: "Cadastro Paciente",
       icon: "ni ni-circle-08",
       component: Paciente,
       layout: "/admin"
-    
   }
 ];
 export default routes;

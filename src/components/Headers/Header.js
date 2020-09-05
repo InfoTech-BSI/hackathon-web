@@ -26,7 +26,7 @@ class Header extends React.Component {
                             Confirmados
                           </CardTitle>
                           <span className="h2 font-weight-bold mb-0">
-                            2,356
+                            2054
                           </span>
                         </div>
                         <Col className="col-auto">
@@ -52,7 +52,7 @@ class Header extends React.Component {
                             Aguardando Resultado
                           </CardTitle>
                           <span className="h2 font-weight-bold mb-0">
-                            350,897
+                            648
                           </span>
                         </div>
                         <Col className="col-auto">
@@ -65,10 +65,6 @@ class Header extends React.Component {
                     </CardBody>
                   </Card>
                 </Col>
-
-
-
-
                 <Col lg="6" xl="4">
                   <Card className="card-stats mb-4 mb-xl-0">
                     <CardBody>
@@ -81,7 +77,7 @@ class Header extends React.Component {
                             Óbitos
                           </CardTitle>
                           <span className="h2 font-weight-bold mb-0">
-                            49,65%
+                            30
                           </span>
                         </div>
                         <Col className="col-auto">
