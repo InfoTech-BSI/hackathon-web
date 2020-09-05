@@ -11,7 +11,7 @@ var routes = [
     path: "/index",
     name: "Pacientes",
     icon: "ni ni-bullet-list-67 text-red",
-    component: Index,
+    component: Register,
     layout: "/admin"
   },
   {
